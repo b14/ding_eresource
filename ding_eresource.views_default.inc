@@ -229,6 +229,8 @@ function ding_eresource_views_default_views() {
   $handler->display->display_options['fields']['field_ding_eresource_category']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_ding_eresource_category']['empty'] = '<h2>E-resurser (no results text)<h/2>';
   $handler->display->display_options['fields']['field_ding_eresource_category']['type'] = 'taxonomy_term_reference_plain';
+  $handler->display->display_options['fields']['field_ding_eresource_category']['group_rows'] = FALSE;
+  $handler->display->display_options['fields']['field_ding_eresource_category']['delta_offset'] = '0';
   /* Field: Taxonomy term: Term description */
   $handler->display->display_options['fields']['description']['id'] = 'description';
   $handler->display->display_options['fields']['description']['table'] = 'taxonomy_term_data';
@@ -273,7 +275,7 @@ function ding_eresource_views_default_views() {
   $handler->display->display_options['argument_input'] = array(
     'field_ding_eresource_category_tid' => array(
       'type' => 'panel',
-      'context' => 'entity:user.cancel-url',
+      'context' => 'entity:node.field_ding_faq_category',
       'context_optional' => 0,
       'panel' => '0',
       'fixed' => '',
