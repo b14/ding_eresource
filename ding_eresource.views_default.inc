@@ -136,6 +136,13 @@ function ding_eresource_views_default_views() {
   $handler = $view->new_display('panel_pane', 'E-resources list', 'ding_eresource_list');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['link_url'] = 'e-materialer';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['links'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Category (field_ding_eresource_category) */
@@ -167,6 +174,51 @@ function ding_eresource_views_default_views() {
   $handler->display->display_options['arguments']['title']['limit'] = '1';
   $handler->display->display_options['arguments']['title']['case'] = 'upper';
   $handler->display->display_options['arguments']['title']['path_case'] = 'lower';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'ding_eresource' => 'ding_eresource',
+  );
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+    'und' => 'und',
+  );
+  /* Filter criterion: Content: Access (field_ding_eresource_access) */
+  $handler->display->display_options['filters']['field_ding_eresource_access_tid']['id'] = 'field_ding_eresource_access_tid';
+  $handler->display->display_options['filters']['field_ding_eresource_access_tid']['table'] = 'field_data_field_ding_eresource_access';
+  $handler->display->display_options['filters']['field_ding_eresource_access_tid']['field'] = 'field_ding_eresource_access_tid';
+  $handler->display->display_options['filters']['field_ding_eresource_access_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_ding_eresource_access_tid']['expose']['operator_id'] = 'field_ding_eresource_access_tid_op';
+  $handler->display->display_options['filters']['field_ding_eresource_access_tid']['expose']['operator'] = 'field_ding_eresource_access_tid_op';
+  $handler->display->display_options['filters']['field_ding_eresource_access_tid']['expose']['identifier'] = 'access';
+  $handler->display->display_options['filters']['field_ding_eresource_access_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    6 => 0,
+    7 => 0,
+    8 => 0,
+    9 => 0,
+  );
+  $handler->display->display_options['filters']['field_ding_eresource_access_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_ding_eresource_access_tid']['vocabulary'] = 'e_resource_availability';
   $handler->display->display_options['argument_input'] = array(
     'field_ding_eresource_category_tid' => array(
       'type' => 'panel',
@@ -210,7 +262,7 @@ function ding_eresource_views_default_views() {
   $handler->display->display_options['empty']['area_text_custom']['field'] = 'area_text_custom';
   $handler->display->display_options['empty']['area_text_custom']['label'] = 'Standardtekst for E-ressourcer';
   $handler->display->display_options['empty']['area_text_custom']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area_text_custom']['content'] = '<h2>E-resurser</h2>
+  $handler->display->display_options['empty']['area_text_custom']['content'] = '
 <p>E-resurser er elektroniske opslagsværker, aviser og tidsskrifter, e-bøger og andre netmedier, som biblioteket stiller gratis til rådighed for borgerne. Brug e-resurserne til at låne netmedier eller søge i databaser efter alverdens emner. De fleste e-resurser har fjernadgang. Det betyder, at du kan anvende dem hjemmefra fra en hvilken som helst internet-adgang. Det kræver blot, at du er bosat i kommunen og er indmeldt som låner på et af bibliotekerne. Alle kan benytte e-resurserne på biblioteket.</p>';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: Content: Category (field_ding_eresource_category) */
@@ -240,7 +292,7 @@ function ding_eresource_views_default_views() {
   $handler->display->display_options['fields']['description']['element_type'] = 'p';
   $handler->display->display_options['fields']['description']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['description']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['description']['empty'] = 'No results text.';
+  $handler->display->display_options['fields']['description']['hide_empty'] = TRUE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Category (field_ding_eresource_category) */
@@ -304,11 +356,10 @@ function ding_eresource_views_default_views() {
     t('View panes'),
     t('Category description'),
     t('Standardtekst for E-ressourcer'),
-    t('<h2>E-resurser</h2>
+    t('
 <p>E-resurser er elektroniske opslagsværker, aviser og tidsskrifter, e-bøger og andre netmedier, som biblioteket stiller gratis til rådighed for borgerne. Brug e-resurserne til at låne netmedier eller søge i databaser efter alverdens emner. De fleste e-resurser har fjernadgang. Det betyder, at du kan anvende dem hjemmefra fra en hvilken som helst internet-adgang. Det kræver blot, at du er bosat i kommunen og er indmeldt som låner på et af bibliotekerne. Alle kan benytte e-resurserne på biblioteket.</p>'),
     t('term from field_ding_eresource_category'),
     t('<h2>E-resurser (no results text)<h/2>'),
-    t('No results text.'),
   );
   $export['ding_eresource'] = $view;
 

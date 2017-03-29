@@ -86,6 +86,9 @@ function ding_eresource_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'workflow_tab' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -94,6 +97,9 @@ function ding_eresource_strongarm() {
         ),
         'path' => array(
           'weight' => '7',
+        ),
+        'redirect' => array(
+          'weight' => '30',
         ),
       ),
       'display' => array(),

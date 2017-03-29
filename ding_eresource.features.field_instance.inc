@@ -51,12 +51,18 @@ function ding_eresource_field_default_field_instances() {
     'description' => 'For an e-resource with free access, leave this field empty. Otherwise the chosen access category is displayed to the user. 
 If proxy is enabled, this category also controls whether or not prefix the e-resource link with the proxy. ',
     'display' => array(
+      'alternative_layout_full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'inline',
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_plain',
-        'weight' => 4,
+        'weight' => 9,
       ),
       'search_result' => array(
         'label' => 'inline',
@@ -100,12 +106,18 @@ If proxy is enabled, this category also controls whether or not prefix the e-res
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'alternative_layout_full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 5,
+        'weight' => 11,
       ),
       'search_result' => array(
         'label' => 'hidden',
@@ -152,12 +164,18 @@ If proxy is enabled, this category also controls whether or not prefix the e-res
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'alternative_layout_full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
-        'weight' => 0,
+        'weight' => 8,
       ),
       'search_result' => array(
         'label' => 'hidden',
@@ -201,12 +219,18 @@ If proxy is enabled, this category also controls whether or not prefix the e-res
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'alternative_layout_full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'file',
         'settings' => array(),
         'type' => 'file_url_plain',
-        'weight' => 7,
+        'weight' => 14,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -218,7 +242,7 @@ If proxy is enabled, this category also controls whether or not prefix the e-res
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 3,
       ),
       'teaser_highlight' => array(
         'label' => 'above',
@@ -256,12 +280,18 @@ If proxy is enabled, this category also controls whether or not prefix the e-res
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'alternative_layout_full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 2,
+        'weight' => 10,
       ),
       'search_result' => array(
         'label' => 'hidden',
@@ -310,12 +340,18 @@ If proxy is enabled, this category also controls whether or not prefix the e-res
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'alternative_layout_full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_label',
-        'weight' => 3,
+        'weight' => 12,
       ),
       'search_result' => array(
         'label' => 'inline',
@@ -324,10 +360,11 @@ If proxy is enabled, this category also controls whether or not prefix the e-res
         'weight' => 2,
       ),
       'teaser' => array(
-        'label' => 'above',
+        'label' => 'hidden',
+        'module' => 'link',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 3,
+        'type' => 'link_plain',
+        'weight' => 2,
       ),
       'teaser_highlight' => array(
         'label' => 'above',
@@ -375,22 +412,21 @@ If proxy is enabled, this category also controls whether or not prefix the e-res
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'alternative_layout_full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
-        'module' => 'cs_adaptive_image',
+        'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'styles' => array(
-            'breakpoint_1' => 768,
-            'breakpoint_2' => 480,
-            'fallback_style' => 'medium',
-            'max_style' => 'large',
-            'style_1' => 'medium',
-            'style_2' => 'thumbnail',
-          ),
+          'image_style' => 'ding_secondary_large',
         ),
-        'type' => 'cs_adaptive_image',
-        'weight' => 1,
+        'type' => 'image',
+        'weight' => 2,
       ),
       'search_result' => array(
         'label' => 'hidden',
@@ -411,19 +447,12 @@ If proxy is enabled, this category also controls whether or not prefix the e-res
       ),
       'teaser' => array(
         'label' => 'hidden',
-        'module' => 'cs_adaptive_image',
+        'module' => 'image',
         'settings' => array(
-          'image_link' => 'content',
-          'styles' => array(
-            'breakpoint_1' => 768,
-            'breakpoint_2' => 500,
-            'fallback_style' => 'ding_list_large',
-            'max_style' => 'ding_list_large',
-            'style_1' => 'ding_list_medium',
-            'style_2' => 'ding_list_small',
-          ),
+          'image_link' => '',
+          'image_style' => 'ding_eresource_list',
         ),
-        'type' => 'cs_adaptive_image',
+        'type' => 'image',
         'weight' => 0,
       ),
       'teaser_highlight' => array(
@@ -453,6 +482,8 @@ If proxy is enabled, this category also controls whether or not prefix the e-res
       'module' => 'media',
       'settings' => array(
         'allowed_schemes' => array(
+          'oembed' => 0,
+          'private' => 0,
           'public' => 'public',
           'vimeo' => 0,
           'youtube' => 0,
@@ -471,6 +502,20 @@ If proxy is enabled, this category also controls whether or not prefix the e-res
           'upload' => 0,
           'youtube' => 0,
         ),
+        'manualcrop_crop_info' => 1,
+        'manualcrop_default_crop_area' => 1,
+        'manualcrop_enable' => 1,
+        'manualcrop_inline_crop' => 0,
+        'manualcrop_instant_crop' => FALSE,
+        'manualcrop_instant_preview' => 1,
+        'manualcrop_keyboard' => 1,
+        'manualcrop_maximize_default_crop_area' => 0,
+        'manualcrop_require_cropping' => array(),
+        'manualcrop_styles_list' => array(
+          'crop_13_10' => 'crop_13_10',
+        ),
+        'manualcrop_styles_mode' => 'include',
+        'manualcrop_thumblist' => 0,
         'progress_indicator' => 'throbber',
       ),
       'type' => 'media_generic',
@@ -485,14 +530,17 @@ If proxy is enabled, this category also controls whether or not prefix the e-res
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'alternative_layout_full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
-        'module' => 'ting_reference',
-        'settings' => array(
-          'view_mode' => 'teaser',
-        ),
-        'type' => 'ting_reference_default',
-        'weight' => 6,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 9,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -504,7 +552,7 @@ If proxy is enabled, this category also controls whether or not prefix the e-res
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 2,
+        'weight' => 4,
       ),
       'teaser_highlight' => array(
         'label' => 'above',
@@ -536,12 +584,18 @@ If proxy is enabled, this category also controls whether or not prefix the e-res
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'alternative_layout_full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'inline',
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
-        'weight' => 8,
+        'weight' => 13,
       ),
       'search_result' => array(
         'label' => 'inline',
